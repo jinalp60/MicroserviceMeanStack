@@ -1,0 +1,47 @@
+version: '3.4'
+
+services:
+
+  api-gateway:
+    container_name: api-gateway
+    build: ./APIGateway/
+    volumes:
+      - './APIGateway/:/src'
+      # - './services/ms1/package.json:/usr/src/package.json'
+    ports:
+      - '80:80' # expose ports - HOST:CONTAINER
+    environment:
+      - NODE_ENV=${NODE_ENV}
+
+  first-ms:
+    container_name: first-ms
+    build: ./firstMicroservice/
+    volumes:
+      - './firstMicroservice/:/src'
+      # - './services/ms1/package.json:/usr/src/package.json'
+    ports:
+      - '8081:8081' # expose ports - HOST:CONTAINER
+    environment:
+      - NODE_ENV=${NODE_ENV}
+
+  second-ms:
+    container_name: second-ms
+    build: ./secondMicroservice/
+    volumes:
+      - './secondMicroservice/:/src'
+      #- './utils:/src'
+      # - './services/ms2/package.json:/usr/src/package.json'
+    ports:
+      - '8082:8082' # expose ports - HOST:CONTAINER
+    environment:
+      - NODE_ENV=${NODE_ENV}
+       
+  frontend:
+    container_name: frontend
+    build: ./sample-project-frontend/ 
+
+    ports:
+      - '4200:4200' # expose ports - HOST:CONTAINER
+    environment:
+      - NODE_ENV=${NODE_ENV}
+

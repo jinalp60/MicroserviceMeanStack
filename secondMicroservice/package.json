@@ -1,0 +1,17 @@
+{
+  "name": "sample_ms",
+  "version": "1.0.0",
+  "description": "a sample microservice implementation with docker",
+  "main": "server.js",
+  "scripts": {
+    "test": "npm test",
+    "start": "node server.js"
+  },
+  "author": "jinal",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+    "request": "^2.88.0",
+    "config": "^1.30.0"
+  }
+}

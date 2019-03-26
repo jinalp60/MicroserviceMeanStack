@@ -1,0 +1,23 @@
+{
+	"microservice": {
+		"config": {
+			"host": "127.0.0.1",
+			"port": 80,
+			"services": [
+				{ 
+					"name": "first Microservice",
+					"url": "http://localhost",
+					"address": "127.0.0.1",
+					"port": 8081
+				},
+				{ 
+					"name": "second Microservice",
+					"url": "http://localhost",
+					"address": "127.0.0.1",
+					"port": 8082
+				}
+										
+			]
+		}
+	}
+}
