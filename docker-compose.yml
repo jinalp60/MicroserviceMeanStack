@@ -1,6 +1,17 @@
 version: '3.4'
 
 services:
+  nginx-ms:
+    image: nginx:1-alpine
+    volumes: 
+      - './nginx/nginx.conf:/etc/nginx/conf.d/nginx.conf'
+    ports:
+      - '8087:81'
+    tty: true
+    depends_on:
+     - first-ms
+     - second-ms
+     - api-gateway
 
   api-gateway:
     container_name: api-gateway
@@ -35,7 +46,7 @@ services:
       - '8082:8082' # expose ports - HOST:CONTAINER
     environment:
       - NODE_ENV=${NODE_ENV}
-       
+  
   frontend:
     container_name: frontend
     build: ./sample-project-frontend/ 
@@ -44,4 +55,5 @@ services:
       - '4200:4200' # expose ports - HOST:CONTAINER
     environment:
       - NODE_ENV=${NODE_ENV}
+  
 
