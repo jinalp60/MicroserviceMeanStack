@@ -11,6 +11,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 const config = require('config'); 
 
 const firstMSConfig = config.get('microservice.config');
+//const gatewayConfig = config.get('api-gateway.config');
 
 app.get('/ms1listUsers', function (req, res) {
 	//res.send("ms1 users list: shri hariji");
@@ -19,7 +20,6 @@ app.get('/ms1listUsers', function (req, res) {
 })
 
 app.get('/heartbeat', function(req, res){
-	
 	var status = {
 		success: true,
 		address: server.address().address,

@@ -11,18 +11,6 @@ services:
     depends_on:
      - first-ms
      - second-ms
-     - api-gateway
-
-  api-gateway:
-    container_name: api-gateway
-    build: ./APIGateway/
-    volumes:
-      - './APIGateway/:/src'
-      # - './services/ms1/package.json:/usr/src/package.json'
-    ports:
-      - '80:80' # expose ports - HOST:CONTAINER
-    environment:
-      - NODE_ENV=${NODE_ENV}
 
   first-ms:
     container_name: first-ms
